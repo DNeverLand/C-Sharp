@@ -35,9 +35,9 @@ namespace ConsoleApp7
             }
         }
 
-        Funcionario() { id = 0; vHora = 0; nome = "Sem nome"; email = ""; dataNasc = new DateTime(); }
-        Funcionario(int Id, double vh, string n, string e, DateTime d) { id = Id; vHora = vh; nome = n; email = e; dataNasc = new DateTime(); }
-        Funcionario(Funcionario f) { id = f.id; vHora = f.vHora; nome = f.nome; email = f.email; dataNasc = f.dataNasc; }
+       public Funcionario() { id = 0; vHora = 0; nome = "Sem nome"; email = ""; dataNasc = new DateTime(); }
+       public Funcionario(int Id, double vh, string n, string e, DateTime d) { id = Id; vHora = vh; nome = n; email = e; dataNasc = new DateTime(d.Year, d.Month, d.Day); }
+       public Funcionario(Funcionario f) { id = f.id; vHora = f.vHora; nome = f.nome; email = f.email; dataNasc = f.dataNasc; }
 
         public int calcularIdade()
         {
@@ -52,6 +52,15 @@ namespace ConsoleApp7
             }
             return vHora;
 
+        }
+
+        public override string ToString()
+        {
+            return "Id:" + id
+                + "\nNome:" + nome
+                + "\nEmail:" + email
+                + "\nData Nascimento:" + dataNasc.ToShortDateString();
+                
         }
     }
 }
